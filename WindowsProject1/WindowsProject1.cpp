@@ -32,7 +32,7 @@ int WinMain(HINSTANCE cetteInstance, HINSTANCE precedenteInstance,
 	if (!RegisterClass(&classeFenetre)) return FALSE;
 
 	fenetrePrincipale = CreateWindow(_T("classeF"), _T("Game Engine"), WS_OVERLAPPEDWINDOW,
-		CW_USEDEFAULT, CW_USEDEFAULT, 400, 300,
+		CW_USEDEFAULT, CW_USEDEFAULT, 1024, 576,
 		NULL, NULL, cetteInstance, NULL);
 	if (!fenetrePrincipale) return FALSE;
 
@@ -50,18 +50,43 @@ int WinMain(HINSTANCE cetteInstance, HINSTANCE precedenteInstance,
 
 LRESULT CALLBACK procedureFenetrePrincipale(HWND fenetrePrincipale, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	static HWND childWindow;
+	static HWND treeViewWindow;
+	static HWND consoleViewWindow;
+	int width;
+	int height;
+
+
+	RECT rect;
+	GetWindowRect(fenetrePrincipale, &rect);
+
+	width = rect.right - rect.left;
+	height = rect.bottom - rect.top;
+
+
+	int treeViewWidth = width / 5;
+	int treeViewHeight = height;
+
+	int consoleViewWidth = width - treeViewWidth;
+	int consoleViewHeight = height / 4;
+	int consoleViewX = treeViewWidth;
+	int consoleViewY = height - consoleViewHeight;
+
 	switch (message)
 	{
 	case WM_CREATE:
-		childWindow = CreateWindowEx(NULL, WC_TREEVIEW, TEXT("Tree View"), WS_CHILD | WS_BORDER | WS_VISIBLE , 0, 0, 300, 120, fenetrePrincipale, NULL, hInst, NULL);
+		treeViewWindow = CreateWindowEx(NULL, WC_TREEVIEW, TEXT("Tree View"), WS_CHILD | WS_BORDER | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, treeViewWidth, treeViewHeight, fenetrePrincipale, NULL, hInst, NULL);
+		consoleViewWindow = CreateWindowEx(WS_EX_RIGHTSCROLLBAR, WC_STATIC, NULL, WS_CHILD | WS_BORDER | WS_VISIBLE, consoleViewX, consoleViewY, consoleViewWidth, consoleViewHeight, fenetrePrincipale, NULL, hInst, NULL);
 		break;
 	case WM_COMMAND:
 		switch (LOWORD(wParam)) {
 			case ID_FICHIER_QUITTER:
 				PostMessage(fenetrePrincipale, WM_CLOSE, 0, 0);
 		}
-
+		break;
+	case WM_SIZE:
+		MoveWindow(treeViewWindow, 0, 0, treeViewWidth, treeViewHeight, true);
+		MoveWindow(consoleViewWindow, consoleViewX, consoleViewY, consoleViewWidth, consoleViewHeight, true);
+		break;
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		return 0;
@@ -70,5 +95,5 @@ LRESULT CALLBACK procedureFenetrePrincipale(HWND fenetrePrincipale, UINT message
 		return DefWindowProc(fenetrePrincipale, message, wParam, lParam);
 	}
 
-	return (DefWindowProcW(fenetrePrincipale, message, wParam, lParam));
+	return DefWindowProcW(fenetrePrincipale, message, wParam, lParam);
 }
