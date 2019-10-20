@@ -29,7 +29,7 @@ int WINAPI WinMain(_In_ HINSTANCE mainInstance, _In_opt_ HINSTANCE previousInsta
 		return -1;
 
 	mainFrame = CreateWindow(_T("classeF"), _T("Game Engine"), WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 1024, 576, NULL, NULL, mainInstance, NULL);
-	
+
 	if (!mainFrame)
 		return -1;
 
@@ -44,8 +44,7 @@ int WINAPI WinMain(_In_ HINSTANCE mainInstance, _In_opt_ HINSTANCE previousInsta
 	return message.wParam;
 }
 
-LRESULT CALLBACK ProcessMessages(HWND mainFrame, UINT message, WPARAM wParam, LPARAM lParam)
-{
+LRESULT CALLBACK ProcessMessages(HWND mainFrame, UINT message, WPARAM wParam, LPARAM lParam) {
 	static HWND treeViewWindow;
 	static HWND consoleViewWindow;
 	static HWND mainWindow;
@@ -73,29 +72,29 @@ LRESULT CALLBACK ProcessMessages(HWND mainFrame, UINT message, WPARAM wParam, LP
 	int mainViewWidth = width - treeViewWidth;
 	int mainWiewHeight = height - consoleViewHeight;
 
-	switch (message){
-		case WM_CREATE:
-			treeViewWindow = CreateWindowEx(NULL, WC_TREEVIEW, TEXT("Tree View"), WS_CHILD | WS_BORDER | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, treeViewWidth, treeViewHeight, mainFrame, NULL, hInst, NULL);
-			consoleViewWindow = CreateWindowEx(WS_EX_RIGHTSCROLLBAR, WC_STATIC, NULL, WS_CHILD | WS_BORDER | WS_VISIBLE, consoleViewX, consoleViewY, consoleViewWidth, consoleViewHeight, mainFrame, NULL, hInst, NULL);
-			mainWindow = CreateWindowEx(NULL, WC_STATIC, TEXT("Main Frame"), WS_CHILD | WS_BORDER | WS_VISIBLE, mainViewX, mainViewY, mainViewWidth, mainWiewHeight, mainFrame, NULL, hInst, NULL);
-			break;
-		case WM_COMMAND:
-			switch (LOWORD(wParam)) {
-				case ID_FICHIER_QUITTER:
-					PostMessage(mainFrame, WM_CLOSE, 0, 0);
-			}
-			break;
-		case WM_SIZE:
-			MoveWindow(treeViewWindow, 0, 0, treeViewWidth, treeViewHeight, true);
-			MoveWindow(consoleViewWindow, consoleViewX, consoleViewY, consoleViewWidth, consoleViewHeight, true);
-			MoveWindow(mainWindow, mainViewX, 0, mainViewWidth, mainWiewHeight, true);
-			break;
-		case WM_DESTROY:
-			PostQuitMessage(0);
-			return 0;
+	switch (message) {
+	case WM_CREATE:
+		treeViewWindow = CreateWindowEx(NULL, WC_TREEVIEW, TEXT("Tree View"), WS_CHILD | WS_BORDER | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, treeViewWidth, treeViewHeight, mainFrame, NULL, hInst, NULL);
+		consoleViewWindow = CreateWindowEx(WS_EX_RIGHTSCROLLBAR, WC_STATIC, NULL, WS_CHILD | WS_BORDER | WS_VISIBLE, consoleViewX, consoleViewY, consoleViewWidth, consoleViewHeight, mainFrame, NULL, hInst, NULL);
+		mainWindow = CreateWindowEx(NULL, WC_STATIC, TEXT("Main Frame"), WS_CHILD | WS_BORDER | WS_VISIBLE, mainViewX, mainViewY, mainViewWidth, mainWiewHeight, mainFrame, NULL, hInst, NULL);
+		break;
+	case WM_COMMAND:
+		switch (LOWORD(wParam)) {
+		case ID_FICHIER_QUITTER:
+			PostMessage(mainFrame, WM_CLOSE, 0, 0);
+		}
+		break;
+	case WM_SIZE:
+		MoveWindow(treeViewWindow, 0, 0, treeViewWidth, treeViewHeight, true);
+		MoveWindow(consoleViewWindow, consoleViewX, consoleViewY, consoleViewWidth, consoleViewHeight, true);
+		MoveWindow(mainWindow, mainViewX, 0, mainViewWidth, mainWiewHeight, true);
+		break;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		return 0;
 
-		default:
-			return DefWindowProc(mainFrame, message, wParam, lParam);
+	default:
+		return DefWindowProc(mainFrame, message, wParam, lParam);
 	}
 
 	return DefWindowProcW(mainFrame, message, wParam, lParam);
