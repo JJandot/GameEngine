@@ -23,12 +23,17 @@ public:
 	float Dot(const Vector v) const;
 	Vector Cross(const Vector v) const;
 	Vector Normalize() const;
+	void Normalize();
 	float Length() const;
 
 	Vector operator+(const Vector v) const;
+	void operator+=(const Vector v);
 	Vector operator-(const Vector v) const;
+	void operator-=(const Vector v);
 	Vector operator*(const float f) const;
+	void operator*=(const float f);
 	Vector operator/(const float f) const;
+	void operator/=(const float f);
 	bool operator==(const Vector v) const;
 	bool operator!=(const Vector v) const;
 };
