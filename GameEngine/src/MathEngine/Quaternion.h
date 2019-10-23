@@ -5,9 +5,9 @@ class Quaternion
 {
 private:
 	float scalar;
-	Vector v;
+	Vector vector;
 public:
-	Quaternion(float scalar, Vector v);
+	Quaternion(float _scalar, Vector _vector);
 	Quaternion(const Quaternion& q);
 
 	Quaternion operator+(const Quaternion q) const;
@@ -22,5 +22,8 @@ public:
 	float Norm() const;
 	Quaternion Normalize() const;
 	void Normalize();
+	Quaternion Conjugate() const;
+	Quaternion Inverse() const;
+
 };
 

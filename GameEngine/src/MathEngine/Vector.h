@@ -10,7 +10,7 @@ private:
 public:
 
 	Vector();
-	Vector(float x, float y, float z);
+	Vector(float _x, float _y, float _z);
 	Vector(const Vector& v);
 
 	inline float X() const { return x; }
