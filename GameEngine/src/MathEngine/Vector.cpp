@@ -27,9 +27,11 @@ Vector Vector::Cross(Vector v) const {
 	return Vector(y * v.Z() - z * v.Y(), z * v.X() - x * v.Z(), x * v.Y() - y * v.X());
 }
 
-Vector Vector::Normalize() const {
+void Vector::Normalize() {
 	float max = max(z, max(x, y));
-	return Vector(x / max, y / max, z / max);
+	x /= max;
+	y /= max;
+	z /= max;
 }
 
 float Vector::Length() const {
@@ -40,16 +42,41 @@ Vector Vector::operator+(Vector v) const {
 	return Vector(x + v.X(), y + v.Y(), z + v.Z());
 }
 
+void Vector::operator+=(const Vector v) {
+	x += v.X();
+	y += v.Y();
+	z += v.Z();
+}
+
 Vector Vector::operator-(Vector v) const {
 	return Vector(x - v.X(), y - v.Y(), z - v.Z());
+}
+
+void Vector::operator-=(const Vector v) {
+	x -= v.X();
+	y -= v.Y();
+	z -= v.Z();
 }
 
 Vector Vector::operator*(float f) const {
 	return Vector(x * f, y * f, z * f);
 }
 
+void Vector::operator*=(const float f) {
+	x *= f;
+	y *= f;
+	z *= f;
+
+}
+
 Vector Vector::operator/(float f) const {
 	return Vector(x / f, y / f, z / f);
+}
+
+void Vector::operator/=(const float f) {
+	x /= f;
+	y /= f;
+	z /= f;
 }
 
 bool Vector::operator==(const Vector v) const {

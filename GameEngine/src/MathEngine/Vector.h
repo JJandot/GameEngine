@@ -22,7 +22,6 @@ public:
 
 	float Dot(const Vector v) const;
 	Vector Cross(const Vector v) const;
-	Vector Normalize() const;
 	void Normalize();
 	float Length() const;
 

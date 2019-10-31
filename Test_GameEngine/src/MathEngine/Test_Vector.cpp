@@ -34,8 +34,9 @@ namespace TestGameEngine {
 
 		TEST_METHOD(Normalize) {
 			Vector v(3.0f, 4.0f, 5.0f);
+			v.Normalize();
 
-			Assert::AreEqual(v.Normalize(), Vector(0.6f, 0.8f, 1.0f));
+			Assert::AreEqual(v, Vector(0.6f, 0.8f, 1.0f));
 		}
 
 		TEST_METHOD(Lenght) {

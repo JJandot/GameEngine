@@ -1,7 +1,12 @@
 #include "stdafx.h"
 #include <windows.h>
 #include <commctrl.h>
+#include <GL/GL.h>
 #include "MainFrame.h"
+
+#pragma comment (lib, "opengl32.lib")
+
+//install-Package nupengl.core in Tools > Nuget package manager > console
 
 LRESULT CALLBACK ProcessMessages(HWND, UINT, WPARAM, LPARAM);
 
