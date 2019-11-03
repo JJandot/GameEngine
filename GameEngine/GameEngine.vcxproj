@@ -152,6 +152,7 @@
     </ClInclude>
     <ClInclude Include="src\MathEngine\Quaternion.h" />
     <ClInclude Include="src\MathEngine\Vector.h" />
+    <ClInclude Include="src\RenderEngine\Renderer.h" />
     <ClInclude Include="src\Ressources\Resource.h">
       <DeploymentContent>true</DeploymentContent>
     </ClInclude>
@@ -169,6 +170,7 @@
     </ClCompile>
     <ClCompile Include="src\MathEngine\Quaternion.cpp" />
     <ClCompile Include="src\MathEngine\Vector.cpp" />
+    <ClCompile Include="src\RenderEngine\Renderer.cpp" />
     <ClCompile Include="src\stdafx.cpp">
       <DeploymentContent>true</DeploymentContent>
     </ClCompile>
