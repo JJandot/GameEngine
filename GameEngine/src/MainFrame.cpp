@@ -35,9 +35,6 @@ int WINAPI WinMain(_In_ HINSTANCE mainInstance, _In_opt_ HINSTANCE previousInsta
 	MSG message;
 	WNDCLASS windowClass;
 
-	Reader::FileReader<Reader::FileType::OBJ> fileReader;
-	fileReader.Read();
-
 	hInst = mainInstance;
 
 	windowClass.style = 0;

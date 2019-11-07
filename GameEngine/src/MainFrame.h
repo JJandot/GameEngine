@@ -4,7 +4,6 @@
 #include <windows.h>
 #include <commctrl.h>
 #include "RenderEngine/Renderer.h"
-#include "FileReader/FileReader.h"
 
 HINSTANCE hInst;
 
