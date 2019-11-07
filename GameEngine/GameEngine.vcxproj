@@ -147,9 +147,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\FileReader\FileReader.h" />
-    <ClInclude Include="src\FileReader\ObjStrategy.h" />
-    <ClInclude Include="src\FileReader\ReadingStrategy.h" />
     <ClInclude Include="src\MainFrame.h">
       <DeploymentContent>true</DeploymentContent>
     </ClInclude>
@@ -167,9 +164,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\FileReader\FileReader.cpp" />
-    <ClCompile Include="src\FileReader\ObjStrategy.cpp" />
-    <ClCompile Include="src\FileReader\ReadingStrategy.cpp" />
     <ClCompile Include="src\MainFrame.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
