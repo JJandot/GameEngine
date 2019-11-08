@@ -250,9 +250,9 @@ void Renderer::DrawGLScene() {
 
 
 
-	RotateX += 0.1;
+	RotateX += 0.1f;
 
-	RotateY += -0.2;
+	RotateY += -0.2f;
 
-	RotateZ += 0.3;
+	RotateZ += 0.3f;
 }
