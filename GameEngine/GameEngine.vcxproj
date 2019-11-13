@@ -147,8 +147,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Core\FileReader.h" />
     <ClInclude Include="src\Core\GameObject.h" />
     <ClInclude Include="src\Core\Mesh.h" />
+    <ClInclude Include="src\Core\SceneGraph.h" />
     <ClInclude Include="src\MainFrame.h">
       <DeploymentContent>true</DeploymentContent>
     </ClInclude>
@@ -166,8 +168,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Core\FileReader.cpp" />
     <ClCompile Include="src\Core\GameObject.cpp" />
     <ClCompile Include="src\Core\Mesh.cpp" />
+    <ClCompile Include="src\Core\SceneGraph.cpp" />
     <ClCompile Include="src\MainFrame.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>

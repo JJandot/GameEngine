@@ -71,6 +71,8 @@ int WINAPI WinMain(_In_ HINSTANCE mainInstance, _In_opt_ HINSTANCE previousInsta
 		GetWindowRect(mainWindow, &rect);
 		renderer.Init(rect, mainViewWidth, mainViewHeight);
 	}
+	else
+		return -1;
 
 	while (true) {
 		while (PeekMessage(&message, NULL, 0, 0, PM_NOREMOVE)) {
