@@ -6,7 +6,7 @@
 class Mesh {
 private:
 	struct Face {
-		std::array<Vector, 3> vertices;
+		std::vector<std::array<int, 3>> vertices;
 	};
 
 	std::vector<Vector> vertexCoordinates;
@@ -15,5 +15,7 @@ private:
 	std::vector<Face> faces;
 
 public:
+	void AddVertexCoordinate(Vector v);
+	void AddFace(Face f);
 };
 

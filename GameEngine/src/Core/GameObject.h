@@ -5,7 +5,9 @@ class GameObject {
 private:
 	int id;
 	std::string name;
+	std::vector<Mesh*> meshes;
 
-	std::vector<Mesh> meshes;
+public:
+	Mesh* CreateMesh();
 };
 

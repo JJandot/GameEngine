@@ -12,6 +12,20 @@ void FileReader::ExtractFormatFromPath(std::string path) {
 }
 
 GameObject* FileReader::ExtractObjData(std::string path) {
+	std::ifstream inFile;
+	inFile.open(path, std::ios::in);
+
+	if (inFile.fail())
+		return nullptr;
+
+	GameObject* gameobject = new GameObject();
+
+	std::string line;
+	while (std::getline(inFile, line)) {
+		if (line.at(0) == '#')
+			continue;
+	}
+
 	return nullptr;
 }
 
