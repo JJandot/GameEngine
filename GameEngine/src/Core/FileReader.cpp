@@ -1,5 +1,6 @@
 #include "FileReader.h"
 
+FileReader::Format FileReader::format;
 
 void FileReader::ExtractFormatFromPath(std::string path) {
 	std::string extension = path.substr(path.find('.'));
