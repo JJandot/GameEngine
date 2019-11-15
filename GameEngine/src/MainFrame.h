@@ -4,6 +4,7 @@
 #include <windows.h>
 #include <commctrl.h>
 #include "RenderEngine/Renderer.h"
+#include "Core/SceneGraph.h"
 
 HINSTANCE hInst;
 
@@ -27,3 +28,4 @@ int mainViewHeight;
 
 
 Renderer renderer;
+SceneGraph sceneGraph;

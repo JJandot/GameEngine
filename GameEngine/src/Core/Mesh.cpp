@@ -1,9 +1,9 @@
 #include "Mesh.h"
 
-void Mesh::AddVertexCoordinate(Vector v) {
+void Mesh::AddVertexCoordinate(float v) {
 	vertexCoordinates.push_back(v);
 }
 
-void Mesh::AddFace(Face f) {
+void Mesh::AddFace(int f) {
 	faces.push_back(f);
 }

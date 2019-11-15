@@ -5,17 +5,13 @@
 
 class Mesh {
 private:
-	struct Face {
-		std::vector<std::array<int, 3>> vertices;
-	};
-
-	std::vector<Vector> vertexCoordinates;
+	std::vector<float> vertexCoordinates;
 	std::vector<std::pair<float, float>> uvs;
-	std::vector<Vector> normalCoordinates;
-	std::vector<Face> faces;
+	std::vector<float> normalCoordinates;
+	std::vector<int> faces;
 
 public:
-	void AddVertexCoordinate(Vector v);
-	void AddFace(Face f);
+	void AddVertexCoordinate(float f);
+	void AddFace(int f);
 };
 

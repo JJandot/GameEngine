@@ -37,6 +37,8 @@ int WINAPI WinMain(_In_ HINSTANCE mainInstance, _In_opt_ HINSTANCE previousInsta
 
 	hInst = mainInstance;
 
+	GameObject *go = sceneGraph.AddGameObject("../DataTest/cube.obj");
+
 	windowClass.style = 0;
 	windowClass.lpfnWndProc = ProcessMessages;
 	windowClass.cbClsExtra = 0;
